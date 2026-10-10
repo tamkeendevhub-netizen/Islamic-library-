@@ -3,22 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#02DB50">
 
   <title>اسلامي کتابتون</title>
 
   <style>
     @font-face {
       font-family: "Bahij";
-      src: url("Bahij%20Jalal-Bold.ttf") format("truetype");
+      src: url("./Bahij%20Jalal-Bold.ttf") format("truetype");
       font-weight: bold;
       font-display: swap;
     }
 
     :root {
-      --main-color: #02DB50;
+      --green: #02DB50;
       --background: #07130B;
-      --card-background: #102018;
-      --border-color: #245B38;
+      --card: #102018;
+      --border: #245B38;
       --white: #FFFFFF;
     }
 
@@ -28,48 +29,40 @@
 
     body {
       margin: 0;
-      padding: 0;
       background: var(--background);
       color: var(--white);
       font-family: "Bahij", Tahoma, Arial, sans-serif;
       line-height: 1.8;
     }
 
-    button,
-    input {
-      font-family: inherit;
-    }
-
     .header {
+      padding: 28px 15px;
       text-align: center;
-      padding: 30px 15px 25px;
       background: #0B1D11;
-      border-bottom: 2px solid var(--main-color);
+      border-bottom: 2px solid var(--green);
     }
 
     .logo {
-      width: 76px;
-      height: 76px;
+      width: 70px;
+      height: 70px;
       margin: 0 auto 10px;
       display: flex;
       align-items: center;
       justify-content: center;
+      background: var(--green);
       border-radius: 50%;
-      background: var(--main-color);
-      color: #FFFFFF;
-      font-size: 38px;
-      font-weight: bold;
+      font-size: 35px;
     }
 
     .header h1 {
       margin: 0;
       font-size: 30px;
-      color: #FFFFFF;
+      color: var(--white);
     }
 
     .header p {
-      margin: 7px 0 0;
-      color: #FFFFFF;
+      margin: 5px 0 0;
+      color: var(--white);
       font-size: 15px;
     }
 
@@ -77,7 +70,7 @@
       width: 100%;
       max-width: 1100px;
       margin: auto;
-      padding: 22px 15px 40px;
+      padding: 22px 15px 35px;
     }
 
     .search-box {
@@ -86,63 +79,56 @@
 
     #searchInput {
       width: 100%;
-      padding: 14px 16px;
-      border: 1px solid var(--border-color);
+      padding: 13px 15px;
+      background: var(--card);
+      color: var(--white);
+      border: 1px solid var(--border);
       border-radius: 12px;
-      background: var(--card-background);
-      color: #FFFFFF;
+      font-family: inherit;
       font-size: 16px;
       outline: none;
     }
 
     #searchInput::placeholder {
-      color: #FFFFFF;
+      color: var(--white);
       opacity: 0.8;
     }
 
     #searchInput:focus {
-      border-color: var(--main-color);
-      box-shadow: 0 0 0 2px rgba(2, 219, 80, 0.15);
+      border-color: var(--green);
     }
 
     .summary {
       display: flex;
-      align-items: center;
+      flex-wrap: wrap;
       justify-content: space-between;
       gap: 10px;
-      flex-wrap: wrap;
       margin-bottom: 20px;
-      color: #FFFFFF;
     }
 
     .summary span {
-      background: var(--card-background);
-      border: 1px solid var(--border-color);
+      padding: 7px 12px;
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 7px 13px;
+      color: var(--white);
     }
 
     .books-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
+      gap: 15px;
     }
 
     .book-card {
       min-width: 0;
-      padding: 17px;
-      border: 1px solid var(--border-color);
-      border-radius: 15px;
-      background: var(--card-background);
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-
-    .book-card:hover {
-      border-color: var(--main-color);
-      transform: translateY(-2px);
+      gap: 12px;
+      padding: 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
     }
 
     .book-top {
@@ -158,8 +144,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--main-color);
-      color: #FFFFFF;
+      background: var(--green);
       border-radius: 8px;
       font-size: 25px;
     }
@@ -170,38 +155,38 @@
 
     .book-number {
       margin: 0;
-      color: #FFFFFF;
-      font-size: 14px;
+      color: var(--white);
+      font-size: 13px;
     }
 
     .book-title {
       margin: 2px 0 0;
-      color: #FFFFFF;
-      font-size: 19px;
+      color: var(--white);
+      font-size: 18px;
       overflow-wrap: anywhere;
     }
 
     .book-details {
-      border-top: 1px solid var(--border-color);
-      padding-top: 9px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
     }
 
     .detail-row {
       display: flex;
-      align-items: flex-start;
       justify-content: space-between;
+      align-items: flex-start;
       gap: 8px;
       margin: 5px 0;
       font-size: 14px;
     }
 
     .detail-label {
-      color: #FFFFFF;
+      color: var(--white);
       flex-shrink: 0;
     }
 
     .detail-value {
-      color: #FFFFFF;
+      color: var(--white);
       text-align: left;
       overflow-wrap: anywhere;
     }
@@ -210,34 +195,36 @@
       display: block;
       width: 100%;
       margin-top: auto;
-      padding: 11px 12px;
-      border: none;
+      padding: 10px 12px;
+      background: var(--green);
+      color: var(--white);
+      border: 0;
       border-radius: 9px;
-      background: var(--main-color);
-      color: #FFFFFF;
-      text-decoration: none;
       text-align: center;
+      text-decoration: none;
+      font-family: inherit;
       font-size: 16px;
       font-weight: bold;
       cursor: pointer;
     }
 
-    .download-btn:hover {
-      filter: brightness(0.93);
+    .download-btn:active {
+      opacity: 0.8;
     }
 
     .empty-message {
       display: none;
+      padding: 25px 10px;
       text-align: center;
-      padding: 30px 10px;
-      color: #FFFFFF;
+      color: var(--white);
     }
 
     .footer {
-      padding: 20px 10px;
+      margin-top: 15px;
+      padding: 18px 10px;
       text-align: center;
-      border-top: 1px solid var(--border-color);
-      color: #FFFFFF;
+      border-top: 1px solid var(--border);
+      color: var(--white);
       font-size: 14px;
     }
 
@@ -248,25 +235,17 @@
     }
 
     @media (max-width: 520px) {
-      .header {
-        padding: 24px 12px;
-      }
-
       .header h1 {
         font-size: 25px;
       }
 
       .container {
-        padding: 16px 12px 30px;
+        padding: 15px 12px 25px;
       }
 
       .books-grid {
         grid-template-columns: 1fr;
         gap: 12px;
-      }
-
-      .book-card {
-        padding: 15px;
       }
     }
   </style>
@@ -275,9 +254,9 @@
 <body>
 
   <header class="header">
-    <div class="logo" aria-hidden="true">📚</div>
+    <div class="logo">📚</div>
     <h1>اسلامي کتابتون</h1>
-    <p>د اسلامي کتابونو د لوستلو او ترلاسه کولو ځای</p>
+    <p>د اسلامي کتابونو د ترلاسه کولو او لوستلو ځای</p>
   </header>
 
   <main class="container">
@@ -294,38 +273,37 @@
 
     <div class="summary">
       <span>ټول کتابونه: <strong id="totalBooks">۴۸</strong></span>
-      <span>د کتابونو بڼه: PDF</span>
+      <span>د فایل بڼه: PDF</span>
     </div>
 
-    <section id="booksGrid" class="books-grid" aria-label="د کتابونو لېست"></section>
+    <section
+      id="booksGrid"
+      class="books-grid"
+      aria-label="د کتابونو لېست">
+    </section>
 
     <div id="emptyMessage" class="empty-message">
-      دا کتاب ونه موندل شو.
+      کتاب ونه موندل شو.
     </div>
 
   </main>
 
   <footer class="footer">
-    اسلامي کتابتون — <span id="currentYear"></span>
+    اسلامي کتابتون © <span id="currentYear"></span>
   </footer>
 
   <script>
     "use strict";
 
-    /*
-      مهم:
-      GITHUB_USERNAME د خپل GitHub حساب په نوم بدل کړه.
-      REPOSITORY_NAME د خپل Repository په نوم بدل کړه.
-      فایلونه باید د Repository په main څانګه کې وي.
-    */
-
-    const GITHUB_USERNAME = "YOUR_USERNAME";
-    const REPOSITORY_NAME = "YOUR_REPOSITORY";
-    const BRANCH_NAME = "main";
+    const SITE_URL =
+      "https://tamkeendevhub-netizen.github.io/Islamic-library-/";
 
     const TOTAL_BOOKS = 48;
 
-    const PASHTO_DIGITS = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
+    const PASHTO_DIGITS = [
+      "۰", "۱", "۲", "۳", "۴",
+      "۵", "۶", "۷", "۸", "۹"
+    ];
 
     const ORDINALS = [
       "لومړی", "دویم", "درېیم", "څلورم", "پنځم",
@@ -344,9 +322,9 @@
     ];
 
     /*
-      دلته د کتابونو اصلي نومونه او د لیکوال نومونه ولیکه.
-      اوس د هغو کتابونو لپاره چې معلومات یې نه دي ورکړل شوي،
-      عمومي نوم او "نامعلوم" ښکاري.
+      د کتابونو اصلي نومونه او لیکوالان دلته ولیکه.
+      د مثال په توګه:
+      1: { title: "د کتاب اصلي نوم", author: "د لیکوال نوم" }
     */
 
     const BOOK_INFO = {
@@ -371,18 +349,6 @@
       return String(number).replace(/[0-9]/g, function (digit) {
         return PASHTO_DIGITS[Number(digit)];
       });
-    }
-
-    function formatFileSize(bytes) {
-      if (!Number.isFinite(bytes) || bytes <= 0) {
-        return "نه ده معلومه";
-      }
-
-      if (bytes < 1024 * 1024) {
-        return (bytes / 1024).toFixed(1) + " KB";
-      }
-
-      return (bytes / (1024 * 1024)).toFixed(2) + " MB";
     }
 
     function getBookTitle(number) {
@@ -432,17 +398,13 @@
       const author = getBookAuthor(number);
       const fileName = "A" + number + ".pdf";
 
-      const rawUrl =
-        "https://raw.githubusercontent.com/" +
-        encodeURIComponent(GITHUB_USERNAME) + "/" +
-        encodeURIComponent(REPOSITORY_NAME) + "/" +
-        BRANCH_NAME + "/" + fileName;
+      /*
+        د PDF فایل مستقیم لینک.
+        د فایل نومونه باید په Repository کې عیناً
+        A1.pdf، A2.pdf ... A48.pdf وي.
+      */
 
-      const filePageUrl =
-        "https://github.com/" +
-        encodeURIComponent(GITHUB_USERNAME) + "/" +
-        encodeURIComponent(REPOSITORY_NAME) +
-        "/blob/" + BRANCH_NAME + "/" + fileName;
+      const fileUrl = new URL(fileName, SITE_URL).href;
 
       const top = createElement("div", "book-top");
       const icon = createElement("div", "book-icon", "📖");
@@ -467,7 +429,7 @@
       addDetailRow(details, "د کتاب نوم:", bookName);
       addDetailRow(details, "لیکوال:", author);
       addDetailRow(details, "د فایل نوم:", fileName);
-      addDetailRow(details, "د فایل اندازه:", "د ترلاسه کولو پر مهال معلومېږي");
+      addDetailRow(details, "د فایل بڼه:", "PDF");
 
       const downloadButton = createElement(
         "a",
@@ -475,23 +437,21 @@
         "⬇ ډاونلوډ"
       );
 
-      downloadButton.href = rawUrl;
-      downloadButton.target = "_blank";
-      downloadButton.rel = "noopener noreferrer";
-      downloadButton.setAttribute("aria-label", bookName + " ډاونلوډ");
-
-      /*
-        د GitHub د Raw فایل URL په ځینو موبایل براوزرونو کې
-        د ډاونلوډ پر ځای فایل پرانیزي. دا عادي خبره ده.
-      */
+      downloadButton.href = fileUrl;
+      downloadButton.setAttribute("download", fileName);
+      downloadButton.setAttribute("target", "_blank");
+      downloadButton.setAttribute("rel", "noopener noreferrer");
 
       downloadButton.addEventListener("click", function (event) {
-        if (
-          GITHUB_USERNAME === "YOUR_USERNAME" ||
-          REPOSITORY_NAME === "YOUR_REPOSITORY"
-        ) {
+        /*
+          د لینک له کلیک کولو وروسته براوزر د PDF
+          فایل خلاصوي یا یې ډاونلوډ کوي.
+          د GitHub Pages له لارې د download ځانګړنه
+          په ټولو براوزرونو کې حتمي نه ده.
+        */
+        if (!downloadButton.href) {
           event.preventDefault();
-          alert("لومړی په کوډ کې د خپل GitHub حساب او Repository نوم ولیکه.");
+          alert("د کتاب لینک پیدا نه شو.");
         }
       });
 
@@ -502,8 +462,8 @@
       return card;
     }
 
-    function renderBooks(filterText) {
-      const query = (filterText || "").trim().toLowerCase();
+    function renderBooks(searchText) {
+      const query = (searchText || "").trim().toLowerCase();
 
       booksGrid.innerHTML = "";
 
@@ -522,11 +482,7 @@
           toPashtoNumber(number)
         ).toLowerCase();
 
-        const matches =
-          query === "" ||
-          searchableText.indexOf(query) !== -1;
-
-        if (!matches) {
+        if (query !== "" && !searchableText.includes(query)) {
           continue;
         }
 
@@ -535,7 +491,9 @@
       }
 
       totalBooks.textContent = toPashtoNumber(visibleCount);
-      emptyMessage.style.display = visibleCount === 0 ? "block" : "none";
+
+      emptyMessage.style.display =
+        visibleCount === 0 ? "block" : "none";
     }
 
     searchInput.addEventListener("input", function () {
@@ -546,11 +504,6 @@
       toPashtoNumber(new Date().getFullYear());
 
     renderBooks("");
-
-    /*
-      د کتابونو د شمېر د ښودلو لپاره:
-      په پیل کې ټول ۴۸ کتابونه ښکاره کېږي.
-    */
   </script>
 
 </body>
